@@ -1,23 +1,12 @@
 pipeline {
-    agent { docker 'python:3.5' }
+    agent { docker 'acleancoder/imagemagick-full' }
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'sh threshold.sh 50 demo.jpg demp_threshold.gif'
             }
         }
 
-	stage('test') {
-		      steps {
-		      	    sh 'echo "a fake tat"'
-		      }
-	}
-	    
-	stage('Deploy') {
-		steps {
-			echo 'Deploying'
-		}
-	}
     }
     
 
