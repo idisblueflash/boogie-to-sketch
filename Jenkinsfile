@@ -4,10 +4,6 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
-		sh '''
-		   echo "Multiline shell steps works too"
-		   ls -lah
-		'''
             }
         }
 
@@ -16,13 +12,13 @@ pipeline {
 		      	    sh 'echo "a fake tat"'
 		      }
 	}
-    }
-    
-    post {
-    	always {
-		archive 'build/libs/**/*.jar'
-		junit 'build/reports/**/*.xml'
+	    
+	stage('Deploy') {
+		steps {
+			echo 'Deploying'
+		}
 	}
     }
+    
 
 }
