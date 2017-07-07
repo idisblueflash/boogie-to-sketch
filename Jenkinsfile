@@ -10,6 +10,12 @@ pipeline {
 		'''
             }
         }
+
+	stage('test') {
+		      steps {
+		      	    sh 'echo "a fake tat"'
+		      }
+	}
     }
     
     post {
