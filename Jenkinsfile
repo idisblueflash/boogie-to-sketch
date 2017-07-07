@@ -11,9 +11,12 @@ pipeline {
             }
         }
     }
-	post {
-		always {
-			junit 'build/reports/**/*.xml'
-		}
+    
+    post {
+    	always {
+		archive 'build/libs/**/*.jar'
+		junit 'build/reports/**/*.xml'
 	}
+    }
+
 }
